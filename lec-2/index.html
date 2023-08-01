@@ -5,91 +5,23 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
   <title>Clock</title>
 </head>
 <style>
-  html {
-    background: #018ded url(http://unsplash.it/1500/1000?image=881&blur=10);
-    background-size: cover;
-    font-family: 'helvetica neue';
-    text-align: center;
-    font-size: 10px;
-  }
 
-  body {
-    font-size: 2rem;
-    display: flex;
-    flex: 1;
-    min-height: 100vh;
-    align-items: center;
-  }
-
-  .clock {
-    width: 30rem;
-    height: 30rem;
-    border: 20px solid white;
-    border-radius: 50%;
-    margin: 50px auto;
-    position: relative;
-    padding: 2rem;
-    box-shadow:
-      0 0 0 4px rgba(0, 0, 0, 0.1),
-      inset 0 0 0 3px #efefef,
-      inset 0 0 10px black,
-      0 0 10px rgba(0, 0, 0, 0.2);
-  }
-
-  .clock-face {
-    position: relative;
-    height: 100%;
-    width: 100%;
-    transform: translateY(-3px);
-  }
-  .hand{
-    width: 50%;
-    height: 6px;
-    background: #000;
-    position: absolute;
-    top: 50%;
-    transform-origin:100%;
-    transform: rotate(90deg);
-    transition: all .05s cubic-bezier(0.1, 2.7, 0.58, 1);
-  }
 </style>
 
 
 <body>
-
   <div class="clock">
     <div class="clock-face">
+      <div class="pin"></div>
       <div class="hand hour-hand"></div>
       <div class="hand minute-hand"></div>
       <div class="hand second-hand"></div>
     </div>
   </div>
 </body>
-<script>
-  const secondhand = document.querySelector('.second-hand');
-  const minutehand = document.querySelector('.minute-hand');
-  const hourhand = document.querySelector('.hour-hand');
-  function setDate(){
-    const now =  new Date();
-
-    const seconds = now.getSeconds();
-    const secondsDeg = ((seconds/60)*360) + 90;
-
-    const minutes = now.getMinutes();
-    const minuteDeg = ((minutes/60)*360) + 90;
-
-    const hours = now.getHours();
-    const hoursDeg = ((hours/24)*360) + 90;
-
-    secondhand.style.transform = `rotate(${secondsDeg}deg)`;
-    minutehand.style.transfrom = `rotate(${minuteDeg}deg)`;
-    hourhand.style.transform = `rotate(${hoursDeg}deg)`;
-    console.log(hoursDeg);
-    console.log(minuteDeg);
-  }
-  setInterval(setDate,1000)
-</script>
+<script src="main.js"></script>
 </html>
